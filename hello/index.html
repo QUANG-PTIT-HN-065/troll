@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <section class="login" id="login">
+        <!-- PHẦN ẢNH LỚN -->
+        <div class="container-image">
+            <img src="/assets/img/mountain.jpg" class="image-mountain">
+        </div>
+
+        <!-- PHẦN ĐĂNG NHẬP -->
+        <div class="container">
+            <div class="container-login">
+                <img src="/assets/img/logoRikkei.png" class="logo">
+                <h1>Đăng nhập</h1>
+                <p>Tận hưởng trải nghiệm học tập cá nhân hóa và theo dõi tiến độ của bạn. Hãy đăng nhập ngay!</p>
+                <form class="input-group">
+                    <label for="email">Email/Số điện thoại</label>
+                    <div class="input-box">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" placeholder=" you@company.com" autocomplete="username"
+                            id="input-name-sign-in">
+                    </div>
+                    <label for="passwd">Mật khẩu</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Mật Khẩu" autocomplete="new-password"
+                            id="input-passwd-sign-in">
+                        <i class="fa-solid fa-eye show-hide-passwd" id="toggle-password"></i>
+                    </div>
+                    <p><a style="cursor: pointer;" onclick="forgotpassword()">Quên mật khẩu ?</a></p>
+                    <button type="button" id="btn-login">Đăng nhập</button>
+                    <p>Chưa có tài khoản? <a id="link-to-sign-up">Đăng ký</a></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="sign-up" id="sign-up">
+        <!-- PHẦN ĐĂNG KÝ -->
+        <div class="container">
+            <div class="container-sign-up">
+                <img src="/assets/img/logoRikkei.png" class="logo">
+                <h1>Đăng ký</h1>
+                <p>Đăng ký ngay để bắt đầu lộ trình luyện thi FE và nâng cao cơ hội thành công của bạn!</p>
+                <form class="input-group-sign-up" onsubmit="{emailjs}">
+                    <div class="input-name-date">
+                        <div>
+                            <label for="">Họ và tên</label>
+                            <div class="input-box">
+                                <i class="fa-regular fa-user"></i>
+                                <input type="text" placeholder=" you@company.com" id="input-name-sign-up">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">Ngày sinh</label>
+                            <div class="input-box">
+                                <input type="date" id="input-date-sign-up">
+                            </div>
+                        </div>
+                    </div>
+                    <label for="">Email/Số điện thoại</label>
+                    <div class="input-box">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="text" placeholder=" you@company.com" id="input-email-sign-up"
+                            autocomplete="username">
+                    </div>
+                    <label for="">Mật khẩu</label>
+                    <div class="input-box" id="input-box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Mật Khẩu" id="input-passwd-sign-up"
+                            autocomplete="new-password">
+                        <i class="fa-solid fa-eye show-hide-passwd" id="toggle-password-sign-up"></i>
+                    </div>
+                    <label for="">Xác nhận mật khẩu</label>
+                    <div class="input-box" id="input-box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Xác Nhận Mật Khẩu" id="input-repasswd-sign-up"
+                            autocomplete="new-password">
+                        <i class="fa-solid fa-eye show-hide-passwd" id="toggle-preassword"></i>
+                    </div>
+                    <div class="input-check-box">
+                        <input type="checkbox" id="checkbox-sign-up">
+                        <label for="">Tôi đồng ý với điều khản sử dụng và chính sách dịch vụ</label>
+                    </div>
+                    <button id="btn-sign-up" type="button">Đăng ký</button>
+                    <p>Đã có tài khoản? <a id="link-to-login">Đăng nhập</a></p>
+                </form>
+            </div>
+        </div>
+        <!-- PHẦN ẢNH LỚN -->
+        <div class="container-image">
+            <img src="/assets/img/city.jpg" class="image-mountain">
+        </div>
+    </section>
+
+    <!-- DẢI ẢNH BÊN DƯỚI -->
+    <div><img src="/assets/img/street.png" class="image-street"></div>
+
+    <!-- THÔNG BÁO SAI MẬT KHẨU -->
+    <div id="container-warning" class="container-warning">
+        <!-- <div class="warning" id="warning">
+            <i class="fa-solid fa-circle-xmark"></i>
+            <span>Email or password incorrect</span>
+         </div> -->
+    </div>
+
+    <div id="container-successful" class="container-successful">
+        <!-- <div class="login-successful">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Login successful</span>
+        </div> -->
+    </div>
+
+    <script src="/js/data.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+    <script src="/js/turnPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <link rel="icon" href="../assets/img/Cat.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/history.css">
+</head>
+
+<body>
+    <header>
+        <nav class="header-page-admin">
+            <img src="../assets/img/logoRikkei.png" alt="logo" class="logo-head" onclick="homePage()" />
+            <div class="acc-lang">
+                <div class="language-wrapper">
+                    <button class="language-toggle">
+                        <img src="../assets/img/global.png" alt="icon-global" class="icon-global" />
+                        <span>VN</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <div class="language-option">
+                            <img src="../assets/img/VN.png" alt="VN" />
+                            Tiếng Việt
+                        </div>
+                        <div class="language-option">
+                            <img src="../assets/img/JP.png" alt="JP" />
+                            Tiếng Nhật
+                        </div>
+                        <div class="language-option">
+                            <img src="../assets/img/GB.png" alt="EN" />
+                            Tiếng Anh
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <img src="" alt="avatar" class="avatar" id="avatar" style="object-fit: cover;" />
+                <div class="avatar-dropdown" id="avatar-dropdown" style="display: none;">
+                    <div class="dropdown-option" onclick="viewProfile()">Thông Tin</div>
+                    <div class="dropdown-option" onclick="viewHistory()">Lịch sử làm bài thi</div>
+                    <div class="dropdown-option" onclick="signOut()"><button
+                            style="border: none; background-color: white; cursor: pointer; font-size: 20px;"
+                            onclick="signOutAdmin()"><i class="fa-solid fa-right-from-bracket"></i></button>Đăng xuất
+                    </div>
+                </div>
+            </div>
+            <i class="fa-solid fa-bars" id="menu-nav"></i>
+            <i class="fa-solid fa-xmark" style="display: none;" id="close-menu-nav"></i>
+        </nav>
+
+        <div class="menu" id="menu" style="display: none;">
+            <div class="menu-header" id="menu-header">
+                <span>Ngôn ngữ</span>
+                <i class="fa-solid fa-chevron-down" id="arrow"></i>
+            </div>
+            <ul class="menu-content" id="menuContent">
+                <li>Tiếng Việt</li>
+                <li>Tiếng Anh</li>
+                <li>Tiếng Nhật</li>
+            </ul>
+            <div class="menu-account">
+                <div style="display: flex;flex-direction: column;">
+                    <div onclick="viewHistory()" style="cursor: pointer;">
+                        <span>Lịch Sử Làm Bài THi</span>
+                    </div>
+                    <div class="name-email-nav" onclick="viewProfile()" style="cursor: pointer;">
+                        <span id="navName">Đặng Toàn</span>
+                        <span id="navEmail">toan@gmail.com</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-right-from-bracket" onclick="signOut()"></i>
+            </div>
+        </div>
+
+        <div class="title">
+            <div class="text-title">
+                <h1>Tự tin bước vào kỳ thi FE
+                    với lộ trình luyện thi thông minh</h1>
+                <p>Luyện thi hiệu quả, nắm chắc thành công ngay từ hôm nay</p>
+            </div>
+        </div>
+
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="content-exam-ruler">
+
+                <section class="tip-container">
+                    <div class="tip-box">
+                        <h2><i class="fa-solid fa-clock-rotate-left"></i>Lịch sử làm bài thi</h2>
+
+                        <div>
+                            <table>
+                                <thead style="margin-bottom: 40px;">
+                                    <th>Tên bài thi</th>
+                                    <th>Ngày Làm bài</th>
+                                    <th>Diểm Sáng</th>
+                                    <th>Diểm chiều</th>
+                                </thead>
+                            </table>
+                            <div id="listHistory">
+
+                            </div>
+                        </div>
+
+                        <div class="pagination">
+                            <button id="firstPageHistory">&laquo;</button>
+                            <button id="prevPageHistory">&lsaquo;</button>
+                            <span id="pageNumbersHistory"></span>
+                            <button id="nextPageHistory">&rsaquo;</button>
+                            <button id="lastPageHistorry">&raquo;</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+            <aside >
+                <img src="../assets/img/imager-aside-1.png" alt="image aside 1">
+                <img src="../assets/img/image-aside-2.png" alt="image aside 2">
+                <img src="../assets/img/image-aside-3.png" alt="image aside 2">
+            </aside>
+        </div>
+    </main>
+
+    <div class="modal hidden " id="seeDetailsUser">
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <h3>LIÊN HỆ</h3>
+            <div class="locations">
+                <div class="location">
+                    <h4>Cơ sở 1</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 7, khối A tòa
+                        nhà Sông Đà, đường Phạm Hùng, phường Mỹ Đình 1, Quận Nam Từ Liêm, Hà Nội</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0862 069 233</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở 2</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 22, khối A tòa
+                        nhà Sông Đà, Phạm Hùng, Mỹ Đình 1, Quận Nam Từ Liêm, Hà Nội</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0862 069 233</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở 3</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 12, Tòa nhà Đảm
+                        Bảo An Toàn Hàng Hải phía Nam, Số 42 đường Tự Cường, phường 4, Tân Bình, TP HCM</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0862 069 233</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở 4</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 4, Tòa Ricco,
+                        số 363 Nguyễn Hữu Thọ, phường Khuê Trung, quận Cẩm Lệ, Đà Nẵng</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0904 694 869</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở 5</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 3, toà TSA
+                        Bulding, Số 77 Lê Trung Nghĩa, Phường 12, Tân Bình, Thành phố Hồ Chí Minh</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0962 703 893</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở Fukuoka</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tokan Fukuoka 2nd
+                        Building 417 Hiecho 1-chome-18, Hakata-ku, Fukuoka, Japan</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0904 694 869</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở PTIT Hà Nội</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Học viện Công nghệ
+                        Bưu chính viễn thông, Km10, đường Nguyễn Trãi, Hà Đông, Hà Nội</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0862 069 233</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở PTIT Hồ Chí Minh</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Học viện Công nghệ
+                        Bưu chính viễn thông, 97 Man Thiện, Phường Hiệp Phú, Thủ Đức, TP HCM</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0962 703 893</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="left">
+                    <p>Website: <a href="http://rikkei.edu.vn">http://rikkei.edu.vn</a></p>
+                    <img src="../assets/img/Group 38.png" alt="QR code" class="qr">
+                </div>
+                <div class="right">
+                    <img src="../assets/img/Img-footer.png" alt="Học viên Rikkei" class="banner">
+                </div>
+            </div>
+            <p class="copy">&copy; 2024 By Rikkei Academy - All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="/js/changeLanguage.js"></script>
+    <script src="../js/navMenu.js"></script>
+    <script src="/js/turnPage.js"></script>
+    <script src="/js/History.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chỉnh sửa thông tin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+    </link>
+    <link rel="stylesheet" href="../css/editInformation.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="../css/footer.css" />
+</head>
+
+<body>
+    <nav class="header-page-admin">
+        <img src="../assets/img/logoRikkei.png" alt="logo" class="logo-head" onclick="homePage()" />
+        <div class="acc-lang">
+            <div class="language-wrapper">
+                <button class="language-toggle">
+                    <img src="../assets/img/global.png" alt="icon-global" class="icon-global" />
+                    <span>VN</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="language-dropdown">
+                    <div class="language-option">
+                        <img src="../assets/img/VN.png" alt="VN" />
+                        Tiếng Việt
+                    </div>
+                    <div class="language-option">
+                        <img src="../assets/img/JP.png" alt="JP" />
+                        Tiếng Nhật
+                    </div>
+                    <div class="language-option">
+                        <img src="../assets/img/GB.png" alt="EN" />
+                        Tiếng Anh
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <img src="" alt="avatar" class="avatar" id="avatar" style="object-fit: cover;" />
+            <div class="avatar-dropdown" id="avatar-dropdown" style="display: none;">
+                <div class="dropdown-option" onclick="viewProfile()">Thông Tin</div>
+                <div class="dropdown-option" onclick="signOut()"><button
+                        style="border: none; background-color: white; cursor: pointer; font-size: 20px;"
+                        onclick="signOutAdmin()"><i class="fa-solid fa-right-from-bracket"></i></button>Đăng xuất</div>
+            </div>
+        </div>
+        <i class="fa-solid fa-bars" id="menu-nav"></i>
+        <i class="fa-solid fa-xmark" style="display: none;" id="close-menu-nav"></i>
+    </nav>
+
+    <div class="menu" id="menu" style="display: none;">
+        <div class="menu-header" id="menu-header">
+            <span>Ngôn ngữ</span>
+            <i class="fa-solid fa-chevron-down" id="arrow"></i>
+        </div>
+        <ul class="menu-content" id="menuContent">
+            <li>Tiếng Việt</li>
+            <li>Tiếng Anh</li>
+            <li>Tiếng Nhật</li>
+        </ul>
+        <div class="menu-account">
+            <div onclick="viewProfile()">
+                <div class="name-email-nav">
+                    <span id="navName">Đặng Toàn</span>
+                    <span id="navEmail">toan@gmail.com</span>
+                </div>
+            </div>
+            <i class="fa-solid fa-arrow-right-from-bracket" onclick="signOut()"></i>
+        </div>
+    </div>
+    <div class="container">
+        <div class="left-column">
+            <h1>Chỉnh sửa thông tin</h1>
+            <div class="profile-image-container" id="profile-image-container">
+                <img class="profile-image" src="/assets/img/city.jpg" id="profile-image" alt="Ảnh đại diện" />
+                <button onclick="openModal('avatarModal')"><i class="fa-solid fa-camera"></i></button>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="description">Tại đây bạn có thể xem các thông tin hiển thị của mình và chỉnh sửa ảnh đại diện.
+                Các
+                thông tin cá nhân còn lại là mặc định và không thể chỉnh sửa.</div>
+            <h2>Thông tin cá nhân</h2>
+            <div class="form-row" id="form-row">
+                <div class="form-group">
+                    <label for="lastName">Họ và Tên</label>
+                    <input type="text" id="lastName" value="Trần Minh Quang" disabled />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="quangchsga@gmail.com" disabled />
+                </div>
+                <div class="form-group">
+                    <label for="birthday">Ngày sinh</label>
+                    <input type="date" id="birthday" value="2006-07-04" disabled />
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-password" onclick="openModal('passwordModal')">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    Đổi mật khẩu
+                </button>
+                <button class="btn btn-edit" onclick="openModal('editInfoModal')">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    Đổi thông tin
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Đổi Mật Khẩu -->
+    <div class="modal" id="passwordModal">
+        <!-- tránh bị cảnh báo trong dom -->
+        <input type="text" name="username" autocomplete="username" style="display: none;">
+        <!-- //////////////////////////////////////  -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Đổi mật khẩu</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="currentPassword">Mật khẩu hiện tại</label>
+                    <input type="password" id="currentPassword" placeholder="Nhập mật khẩu hiện tại"
+                        class="box-input-edit" autocomplete="current-password" />
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">Mật khẩu mới</label>
+                    <input type="password" id="newPassword" placeholder="Nhập mật khẩu mới" class="box-input-edit"
+                        autocomplete="new-password" />
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Xác nhận mật khẩu mới</label>
+                    <input type="password" id="confirmPassword" placeholder="Xác nhận mật khẩu mới"
+                        class="box-input-edit" autocomplete="new-password" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeModal('passwordModal')">Hủy</button>
+                <button class="btn btn-save" id="btnChangePass">Lưu</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Đổi Thông Tin -->
+    <div class="modal" id="editInfoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Đổi thông tin</h3>
+            </div>
+            <div class="modal-body" id="editInfo">
+                <div class="form-group">
+                    <label for="editName">Họ và Tên</label>
+                    <input type="text" id="editName" value="Trần Minh Quang" class="box-input-edit" />
+                </div>
+                <div class="form-group">
+                    <label for="editBirthday">Ngày sinh</label>
+                    <input type="date" id="editBirthday" value="2006-07-04" class="box-input-edit" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeModal('editInfoModal')">Hủy</button>
+                <button class="btn btn-save" id="btnEdit">Lưu</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Đổi Ảnh Đại Diện -->
+    <div class="modal" id="avatarModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Đổi ảnh đại diện</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="avatarUrl">Link ảnh đại diện mới</label>
+                    <input type="url" id="avatarUrl" placeholder="Nhập link ảnh (URL)" value="/assets/img/city.jpg" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-cancel" onclick="closeModal('avatarModal')">Hủy</button>
+                <button class="btn btn-save" onclick="changeAvatar()">Lưu</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <h3>LIÊN HỆ</h3>
+            <div class="locations">
+                <div class="location">
+                    <h4>Cơ sở 1</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 7, khối A tòa
+                        nhà Sông Đà, đường Phạm Hùng, phường Mỹ Đình 1, Quận Nam Từ Liêm, Hà Nội</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0862 069 233</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở 2</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 22, khối A tòa
+                        nhà Sông Đà, Phạm Hùng, Mỹ Đình 1, Quận Nam Từ Liêm, Hà Nội</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0862 069 233</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở 3</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 12, Tòa nhà Đảm
+                        Bảo An Toàn Hàng Hải phía Nam, Số 42 đường Tự Cường, phường 4, Tân Bình, TP HCM</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0862 069 233</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở 4</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 4, Tòa Ricco,
+                        số 363 Nguyễn Hữu Thọ, phường Khuê Trung, quận Cẩm Lệ, Đà Nẵng</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0904 694 869</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở 5</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tầng 3, toà TSA
+                        Bulding, Số 77 Lê Trung Nghĩa, Phường 12, Tân Bình, Thành phố Hồ Chí Minh</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0962 703 893</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở Fukuoka</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Tokan Fukuoka 2nd
+                        Building 417 Hiecho 1-chome-18, Hakata-ku, Fukuoka, Japan</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0904 694 869</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở PTIT Hà Nội</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Học viện Công nghệ
+                        Bưu chính viễn thông, Km10, đường Nguyễn Trãi, Hà Đông, Hà Nội</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0862 069 233</p>
+                </div>
+                <div class="location">
+                    <h4>Cơ sở PTIT Hồ Chí Minh</h4>
+                    <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Học viện Công nghệ
+                        Bưu chính viễn thông, 97 Man Thiện, Phường Hiệp Phú, Thủ Đức, TP HCM</p>
+                    <p><i class="fa-solid fa-phone-volume" style="color: #ffffff;"></i> 0962 703 893</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="left">
+                    <p>Website: <a href="http://rikkei.edu.vn">http://rikkei.edu.vn</a></p>
+                    <img src="../assets/img/Group 38.png" alt="QR code" class="qr">
+                </div>
+                <div class="right">
+                    <img src="../assets/img/Img-footer.png" alt="Học viên Rikkei" class="banner">
+                </div>
+            </div>
+            <p class="copy">&copy; 2024 By Rikkei Academy - All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/data.js"></script>
+    <script src="https://kit.fontawesome.com/aee2c1f27c.js" crossorigin="anonymous"></script>
+    <script src="/js/editInformation.js"></script>
+    <script src="/js/changeLanguage.js"></script>
+    <script src="../js/navMenu.js"></script>
+    <script src="/js/turnPage.js"></script>
+</body>
+
+</html>

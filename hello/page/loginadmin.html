@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section
+      class="login"
+      id="login"
+      style="display: flex; justify-content: center"
+    >
+      <!-- PHẦN ĐĂNG NHẬP -->
+      <div class="container" style="width: 50%">
+        <div class="container-login">
+          <img src="/assets/img/logoRikkei.png" class="logo" />
+          <h1>Đăng nhập Admin</h1>
+          <form class="input-group">
+            <label for="email">Email</label>
+            <div class="input-box">
+              <i class="fa-regular fa-envelope"></i>
+              <input
+                type="email"
+                placeholder=" you@company.com"
+                autocomplete="username"
+                id="input-name-sign-in"
+              />
+            </div>
+            <label for="passwd">Mật khẩu</label>
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                autocomplete="new-password"
+                id="input-passwd-sign-in"
+              />
+              <i
+                class="fa-solid fa-eye show-hide-passwd"
+                id="toggle-password"
+              ></i>
+            </div>
+            <button type="button" id="btn-login" onclick="loginAdmin()">
+              Đăng nhập
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+  <script>
+    function loginAdmin() {
+      let adminEmail = "quangvippro@gmail.com";
+      let adminPasswd = "123456789";
+      const email = document.getElementById("input-name-sign-in").value.trim();
+      const password = document
+        .getElementById("input-passwd-sign-in")
+        .value.trim();
+
+      if (!email || !password) {
+        Swal.fire({
+          icon: "warning",
+          title: "Thiếu thông tin",
+          text: "Vui lòng nhập đầy đủ email và mật khẩu!",
+          confirmButtonText: "Đồng ý",
+        });
+        return;
+      }
+
+      if (email === adminEmail && password === adminPasswd) {
+        Swal.fire({
+          icon: "success",
+          title: "Đăng nhập thành công",
+          text: "Chào mừng bạn quay trở lại!",
+          confirmButtonText: "Tiếp tục",
+        }).then(() => {
+          sessionStorage.setItem("page", "adminPage");
+          window.location.href = "/page/adminPage.html";
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Đăng nhập thất bại",
+          text: "Tài khoản hoặc mật khẩu không đúng!",
+          confirmButtonText: "Thử lại",
+        });
+      }
+    }
+  </script>
+</html>

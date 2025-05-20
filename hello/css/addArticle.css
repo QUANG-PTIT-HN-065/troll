@@ -1,0 +1,153 @@
+    /* css cho phần crud bài viết */
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .modal-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-content {
+        position: relative;
+        background-color: #fff;
+        padding: 24px;
+        border-radius: 12px;
+        width: 400px;
+        max-width: 90%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+    }
+    
+    .modal-form-add,
+    .modal-form-edit {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .modal-form-add label,
+    .modal-form-edit label {
+        font-weight: 600;
+    }
+    
+    .modal-form-add input,
+    .modal-form-edit input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+    
+    .modal-form-add input:focus,
+    .modal-form-edit input:focus {
+        outline: 2px solid #BC2228;
+    }
+    
+    .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 16px;
+    }
+    
+    .btn-add-post {
+        background-color: #BC2228;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    .btn-add-post:hover {
+        background-color: #d12b30;
+    }
+    
+    .btn-save-edit {
+        background-color: #d12b30;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    .btn-save-edit:hover {
+        background-color: #1a242f;
+    }
+    
+    .btn-close {
+        background-color: #eee;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    .btn-close:hover {
+        background-color: #ccc;
+    }
+    
+    .btn-confirm-delete {
+        background-color: #BC2228;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    .btn-confirm-delete:hover {
+        background-color: #d12b30;
+    }
+    
+    .btn-close-delete {
+        background-color: #eee;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    .btn-close-delete:hover {
+        background-color: #ccc;
+    }
+    
+    .modal-error {
+        position: fixed;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 1rem 2rem;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        transition: top 0.3s ease;
+        text-align: center;
+    }
+    
+    .modal-error.show {
+        top: 20px;
+    }
+    
