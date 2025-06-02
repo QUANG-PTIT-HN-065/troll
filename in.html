@@ -26,7 +26,7 @@
             animation: fadeIn 1s ease-in-out;
         }
         .icon {
-            font-size: 100px;
+            font-size: 300px;
             animation: bounce 1s ease-in-out infinite;
         }
         @keyframes fadeIn {
@@ -40,12 +40,14 @@
     </style>
 </head>
 <body>
-    <button onclick="showMessage()">bấm vô</button>
+    <button onclick="showMessage()" id="btn">bấm vô</button>
     <div id="content" class="hidden">
+        <div class="message">liu liu😝😜</div>
         <div class="icon">🖕</div>
     </div>
     <script>
         function showMessage() {
+            document.getElementById("btn").style.display = "none";
             document.getElementById("content").classList.remove("hidden");
         }
     </script>
